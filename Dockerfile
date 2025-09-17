@@ -46,31 +46,60 @@ RUN echo '#!/bin/bash' > /tmp/setup.sh && \
     echo "ls -l" >> /tmp/setup.sh && \
     echo "ls -l libs" >> /tmp/setup.sh && \
     echo "ls -l libs/sdk-py" >> /tmp/setup.sh && \
-    echo "ls -l libs/langgraph" >> /tmp/setup.sh && \
-    echo "ls -l libs/cli" >> /tmp/setup.sh && \
     echo "cat libs/sdk-py/pyproject.toml" >> /tmp/setup.sh && \
+    echo "cat libs/sdk-py/uv.lock" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph" >> /tmp/setup.sh && \
     echo "cat libs/langgraph/pyproject.toml" >> /tmp/setup.sh && \
-    echo "cat libs/cli/pyproject.toml" >> /tmp/setup.sh && \
-    echo "ls -l libs/checkpoint-sqlite" >> /tmp/setup.sh && \
     echo "ls -l libs/prebuilt" >> /tmp/setup.sh && \
     echo "ls -l libs/checkpoint" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-sqlite" >> /tmp/setup.sh && \
     echo "ls -l libs/checkpoint-postgres" >> /tmp/setup.sh && \
-    echo "cat libs/prebuilt/pyproject.toml" >> /tmp/setup.sh && \
-    echo "cat libs/checkpoint-postgres/pyproject.toml" >> /tmp/setup.sh && \
-    echo "cat libs/checkpoint/pyproject.toml" >> /tmp/setup.sh && \
-    echo "cat libs/checkpoint-sqlite/pyproject.toml" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli" >> /tmp/setup.sh && \
+    echo "ls -l libs/prebuilt/langgraph" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/langgraph_cli" >> /tmp/setup.sh && \
+    echo "ls -l libs/prebuilt/langgraph/prebuilt" >> /tmp/setup.sh && \
+    echo "ls -l" >> /tmp/setup.sh && \
+    echo "ls -l examples" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph/langgraph" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-sqlite/langgraph" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint/langgraph" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-postgres/langgraph" >> /tmp/setup.sh && \
+    echo "ls -l libs/sdk-js" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/libs" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/libs/common" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/libs/shared" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/libs/shared/src" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/libs/shared/src/shared" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/apps" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/apps/agent" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/apps/agent/src" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/python-monorepo-example/apps/agent/src/agent" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/js-examples" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/js-monorepo-example" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/schemas" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/tests/unit_tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/cli/tests/integration_tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/prebuilt/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-sqlite/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-postgres/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/sdk-py/tests" >> /tmp/setup.sh && \
+    echo "ls -l libs/sdk-py/tests/fixtures" >> /tmp/setup.sh && \
+    echo "ls -l libs/prebuilt/langgraph/prebuilt" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint/langgraph/checkpoint" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-sqlite/langgraph/checkpoint" >> /tmp/setup.sh && \
+    echo "ls -l libs/checkpoint-postgres/langgraph/checkpoint" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph/tests/__snapshots__" >> /tmp/setup.sh && \
+    echo "ls -l libs/prebuilt/tests/__snapshots__" >> /tmp/setup.sh && \
+    echo "ls -l libs" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph/pyproject.toml" >> /tmp/setup.sh && \
+    echo "ls -l libs/langgraph/uv.lock" >> /tmp/setup.sh && \
+    echo "lsb_release -a || cat /etc/os-release" >> /tmp/setup.sh && \
     echo "python3 --version" >> /tmp/setup.sh && \
     echo "pip install uv" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/cli --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/langgraph --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/checkpoint-sqlite --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/prebuilt --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/checkpoint --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/checkpoint-postgres --system" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/sdk-py --system" >> /tmp/setup.sh && \
-    echo "apt-get update && apt-get install -y libpq-dev" >> /tmp/setup.sh && \
-    echo "uv pip install -e libs/checkpoint-postgres --system" >> /tmp/setup.sh && \
-    echo "python -c \"import langgraph; import langgraph_sdk; import langgraph_cli; import sqlite3; import psycopg; import click; print('Imports OK')\"" >> /tmp/setup.sh && \
     chmod +x /tmp/setup.sh && \
     /tmp/setup.sh
 
